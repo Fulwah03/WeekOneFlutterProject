@@ -10,7 +10,7 @@ class DetailsScreen extends StatelessWidget {
     required this.place,
   });
 
-  // فتح موقع الوجهة في Google Maps
+    
   Future<void> openGoogleMaps() async {
     String searchPlace =
         "${place["name"]}, ${place["location"]}, Saudi Arabia";
@@ -74,7 +74,7 @@ class DetailsScreen extends StatelessWidget {
         padding: EdgeInsets.zero,
 
         children: [
-          // صورة المكان
+            
           SizedBox(
             width: screenWidth,
             height: imageHeight,
@@ -88,7 +88,7 @@ class DetailsScreen extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
 
-                // تدرج داكن لإظهار النص
+                  
                 Container(
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
@@ -103,7 +103,7 @@ class DetailsScreen extends StatelessWidget {
                   ),
                 ),
 
-                // اسم المكان والموقع
+                  
                 Positioned(
                   left: 20,
                   right: 20,
@@ -130,7 +130,7 @@ class DetailsScreen extends StatelessWidget {
 
                       const SizedBox(height: 5),
 
-                      // الموقع القابل للضغط
+                        
                       InkWell(
                         onTap: openGoogleMaps,
 
@@ -196,7 +196,7 @@ class DetailsScreen extends StatelessWidget {
             ),
           ),
 
-          // بطاقة الجواز
+            
           Transform.translate(
             offset: const Offset(0, -30),
 
@@ -237,7 +237,7 @@ class DetailsScreen extends StatelessWidget {
                       CrossAxisAlignment.start,
 
                   children: [
-                    // عنوان الجواز والطابع
+                      
                     Row(
                       crossAxisAlignment:
                           CrossAxisAlignment.start,
@@ -285,7 +285,7 @@ class DetailsScreen extends StatelessWidget {
 
                         const SizedBox(width: 10),
 
-                        // طابع السفر
+                          
                         Transform.rotate(
                           angle: -0.12,
 
@@ -376,7 +376,7 @@ class DetailsScreen extends StatelessWidget {
 
                     const SizedBox(height: 20),
 
-                    // التصنيف
+                      
                     buildInformationRow(
                       icon: Icons.category_outlined,
                       title: "Category",
@@ -385,7 +385,7 @@ class DetailsScreen extends StatelessWidget {
 
                     const SizedBox(height: 16),
 
-                    // أفضل وقت للزيارة
+                      
                     buildInformationRow(
                       icon:
                           Icons.calendar_month_outlined,
@@ -420,7 +420,7 @@ class DetailsScreen extends StatelessWidget {
 
                     const SizedBox(height: 22),
 
-                    // التجربة المقترحة
+                      
                     Container(
                       width: double.infinity,
                       padding: const EdgeInsets.all(16),
@@ -488,7 +488,7 @@ class DetailsScreen extends StatelessWidget {
 
                     const SizedBox(height: 25),
 
-                    // زر الرجوع
+                      
                     SizedBox(
                       width: double.infinity,
 
@@ -539,7 +539,7 @@ class DetailsScreen extends StatelessWidget {
     );
   }
 
-  // دالة عرض المعلومات
+    
   Widget buildInformationRow({
     required IconData icon,
     required String title,

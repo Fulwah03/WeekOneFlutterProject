@@ -6,7 +6,7 @@ import 'details_screen.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-  // فتح موقع الوجهة في Google Maps
+   
   Future<void> openGoogleMaps(
     Map<String, String> place,
   ) async {
@@ -126,7 +126,7 @@ class HomeScreen extends StatelessWidget {
         padding: EdgeInsets.zero,
 
         children: [
-          // الهيدر
+           
           Container(
             width: screenWidth,
 
@@ -224,7 +224,7 @@ class HomeScreen extends StatelessWidget {
 
           const SizedBox(height: 24),
 
-          // عنوان الأماكن
+           
           Padding(
             padding:
                 const EdgeInsets.symmetric(
@@ -246,7 +246,7 @@ class HomeScreen extends StatelessWidget {
 
           const SizedBox(height: 20),
 
-          // إنشاء تذكرة لكل مكان
+           
           ...places.map(
             (place) => buildTicket(
               context: context,
@@ -261,7 +261,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  // دالة بناء التذكرة
+   
   Widget buildTicket({
     required BuildContext context,
     required Map<String, String> place,
@@ -283,7 +283,7 @@ class HomeScreen extends StatelessWidget {
           clipBehavior: Clip.none,
 
           children: [
-            // جسم التذكرة
+             
             Positioned.fill(
               child: Container(
                 clipBehavior: Clip.antiAlias,
@@ -316,7 +316,7 @@ class HomeScreen extends StatelessWidget {
 
                 child: Row(
                   children: [
-                    // معلومات المكان
+                     
                     Expanded(
                       flex: 11,
 
@@ -336,7 +336,7 @@ class HomeScreen extends StatelessWidget {
                                   .start,
 
                           children: [
-                            // اسم المكان
+                             
                             Text(
                               place["name"]!,
 
@@ -352,7 +352,7 @@ class HomeScreen extends StatelessWidget {
                               ),
                             ),
 
-                            // الموقع القابل للضغط
+                             
                             InkWell(
                               onTap: () {
                                 openGoogleMaps(
@@ -421,7 +421,7 @@ class HomeScreen extends StatelessWidget {
                               ),
                             ),
 
-                            // التصنيف
+                             
                             Row(
                               children: [
                                 const Icon(
@@ -451,7 +451,7 @@ class HomeScreen extends StatelessWidget {
                               ],
                             ),
 
-                            // خط زخرفي
+                             
                             Container(
                               width: 105,
                               height: 1,
@@ -460,7 +460,7 @@ class HomeScreen extends StatelessWidget {
                               ),
                             ),
 
-                            // الوصف
+                             
                             Text(
                               place["description"]!,
                               maxLines: 3,
@@ -476,7 +476,7 @@ class HomeScreen extends StatelessWidget {
                               ),
                             ),
 
-                            // زر Explore
+                             
                             ElevatedButton(
                               onPressed: () {
                                 Navigator.push(
@@ -527,7 +527,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
 
-                    // الخط الفاصل
+                     
                     Container(
                       width: 1,
 
@@ -540,7 +540,7 @@ class HomeScreen extends StatelessWidget {
                           const Color(0xFFC7AE88),
                     ),
 
-                    // صورة المكان
+                     
                     Expanded(
                       flex: 10,
 
@@ -555,7 +555,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
-            // فتحة اليسار
+             
             Positioned(
               left: -11,
               top: cardHeight / 2 - 11,
@@ -572,7 +572,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
-            // فتحة اليمين
+             
             Positioned(
               right: -11,
               top: cardHeight / 2 - 11,
@@ -589,7 +589,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
-            // فتحة أعلى خط الفصل
+             
             Positioned(
               top: -11,
               left: separatorPosition - 11,
@@ -606,7 +606,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
-            // فتحة أسفل خط الفصل
+             
             Positioned(
               bottom: -11,
               left: separatorPosition - 11,
@@ -623,7 +623,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
-            // الفتحات الصغيرة
+             
             Positioned(
               left: separatorPosition - 6,
               top: 28,
