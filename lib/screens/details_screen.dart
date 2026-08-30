@@ -2,18 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../models/around_saudi_model.dart';
+
 class DetailsScreen extends StatelessWidget {
-  final Map<String, String> place;
+  final AroundSaudiModel place;
 
   const DetailsScreen({
     super.key,
     required this.place,
   });
 
-    
   Future<void> openGoogleMaps() async {
     String searchPlace =
-        "${place["name"]}, ${place["location"]}, Saudi Arabia";
+        "${place.name}, ${place.location}, Saudi Arabia";
 
     Uri googleMapsUrl = Uri.https(
       "www.google.com",
@@ -36,7 +37,7 @@ class DetailsScreen extends StatelessWidget {
         MediaQuery.sizeOf(context).width;
 
     double imageHeight =
-        screenWidth < 600 ? screenWidth * 0.78 : 420.0;
+        screenWidth < 600 ? screenWidth * 0.78 : 420;
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -74,7 +75,6 @@ class DetailsScreen extends StatelessWidget {
         padding: EdgeInsets.zero,
 
         children: [
-            
           SizedBox(
             width: screenWidth,
             height: imageHeight,
@@ -84,11 +84,10 @@ class DetailsScreen extends StatelessWidget {
 
               children: [
                 Image.asset(
-                  place["image"]!,
+                  place.image!,
                   fit: BoxFit.cover,
                 ),
 
-                  
                 Container(
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
@@ -103,7 +102,6 @@ class DetailsScreen extends StatelessWidget {
                   ),
                 ),
 
-                  
                 Positioned(
                   left: 20,
                   right: 20,
@@ -115,13 +113,11 @@ class DetailsScreen extends StatelessWidget {
 
                     children: [
                       Text(
-                        place["name"]!,
+                        place.name!,
 
                         style:
                             GoogleFonts.playfairDisplay(
-                          color: const Color(
-                            0xFFFFF8EC,
-                          ),
+                          color: const Color(0xFFFFF8EC),
                           fontSize: 38,
                           fontWeight: FontWeight.bold,
                           letterSpacing: 1,
@@ -130,10 +126,8 @@ class DetailsScreen extends StatelessWidget {
 
                       const SizedBox(height: 5),
 
-                        
                       InkWell(
                         onTap: openGoogleMaps,
-
                         borderRadius:
                             BorderRadius.circular(10),
 
@@ -145,34 +139,33 @@ class DetailsScreen extends StatelessWidget {
                           ),
 
                           child: Row(
-                            mainAxisSize:
-                                MainAxisSize.min,
+                            mainAxisSize: MainAxisSize.min,
 
                             children: [
                               const Icon(
                                 Icons.location_on,
-                                color:
-                                    Color(0xFFD9B36C),
+                                color: Color(0xFFD9B36C),
                                 size: 20,
                               ),
 
                               const SizedBox(width: 5),
 
-                              Text(
-                                place["location"]!,
+                              Flexible(
+                                child: Text(
+                                  place.location!,
 
-                                style:
-                                    GoogleFonts.poppins(
-                                  color: const Color(
-                                    0xFFFFF8EC,
-                                  ),
-                                  fontSize: 15,
-                                  decoration:
-                                      TextDecoration
-                                          .underline,
-                                  decorationColor:
-                                      const Color(
-                                    0xFFD9B36C,
+                                  style: GoogleFonts.poppins(
+                                    color: const Color(
+                                      0xFFFFF8EC,
+                                    ),
+                                    fontSize: 15,
+                                    decoration:
+                                        TextDecoration
+                                            .underline,
+                                    decorationColor:
+                                        const Color(
+                                      0xFFD9B36C,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -181,8 +174,7 @@ class DetailsScreen extends StatelessWidget {
 
                               const Icon(
                                 Icons.open_in_new,
-                                color:
-                                    Color(0xFFD9B36C),
+                                color: Color(0xFFD9B36C),
                                 size: 15,
                               ),
                             ],
@@ -196,7 +188,6 @@ class DetailsScreen extends StatelessWidget {
             ),
           ),
 
-            
           Transform.translate(
             offset: const Offset(0, -30),
 
@@ -237,7 +228,6 @@ class DetailsScreen extends StatelessWidget {
                       CrossAxisAlignment.start,
 
                   children: [
-                      
                     Row(
                       crossAxisAlignment:
                           CrossAxisAlignment.start,
@@ -252,8 +242,7 @@ class DetailsScreen extends StatelessWidget {
                               Text(
                                 "TRAVEL PASSPORT",
 
-                                style:
-                                    GoogleFonts.poppins(
+                                style: GoogleFonts.poppins(
                                   color: const Color(
                                     0xFFB66A3C,
                                   ),
@@ -267,7 +256,7 @@ class DetailsScreen extends StatelessWidget {
                               const SizedBox(height: 5),
 
                               Text(
-                                place["name"]!,
+                                place.name!,
 
                                 style: GoogleFonts
                                     .playfairDisplay(
@@ -285,7 +274,6 @@ class DetailsScreen extends StatelessWidget {
 
                         const SizedBox(width: 10),
 
-                          
                         Transform.rotate(
                           angle: -0.12,
 
@@ -319,8 +307,7 @@ class DetailsScreen extends StatelessWidget {
 
                               child: Column(
                                 mainAxisAlignment:
-                                    MainAxisAlignment
-                                        .center,
+                                    MainAxisAlignment.center,
 
                                 children: [
                                   const Icon(
@@ -336,8 +323,7 @@ class DetailsScreen extends StatelessWidget {
                                   Text(
                                     "SAUDI",
 
-                                    style:
-                                        GoogleFonts.poppins(
+                                    style: GoogleFonts.poppins(
                                       color: const Color(
                                         0xFFB66A3C,
                                       ),
@@ -351,8 +337,7 @@ class DetailsScreen extends StatelessWidget {
                                   Text(
                                     "STAMPED",
 
-                                    style:
-                                        GoogleFonts.poppins(
+                                    style: GoogleFonts.poppins(
                                       color: const Color(
                                         0xFFB66A3C,
                                       ),
@@ -376,21 +361,18 @@ class DetailsScreen extends StatelessWidget {
 
                     const SizedBox(height: 20),
 
-                      
                     buildInformationRow(
                       icon: Icons.category_outlined,
                       title: "Category",
-                      value: place["category"]!,
+                      value: place.category!,
                     ),
 
                     const SizedBox(height: 16),
 
-                      
                     buildInformationRow(
-                      icon:
-                          Icons.calendar_month_outlined,
+                      icon: Icons.calendar_month_outlined,
                       title: "Best time to visit",
-                      value: place["bestTime"]!,
+                      value: place.bestTime!,
                     ),
 
                     const SizedBox(height: 24),
@@ -398,8 +380,7 @@ class DetailsScreen extends StatelessWidget {
                     Text(
                       "About this destination",
 
-                      style:
-                          GoogleFonts.playfairDisplay(
+                      style: GoogleFonts.playfairDisplay(
                         color: const Color(0xFF123B32),
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
@@ -409,7 +390,7 @@ class DetailsScreen extends StatelessWidget {
                     const SizedBox(height: 10),
 
                     Text(
-                      place["description"]!,
+                      place.description!,
 
                       style: GoogleFonts.poppins(
                         color: Colors.black87,
@@ -420,7 +401,6 @@ class DetailsScreen extends StatelessWidget {
 
                     const SizedBox(height: 22),
 
-                      
                     Container(
                       width: double.infinity,
                       padding: const EdgeInsets.all(16),
@@ -450,15 +430,13 @@ class DetailsScreen extends StatelessWidget {
                           Expanded(
                             child: Column(
                               crossAxisAlignment:
-                                  CrossAxisAlignment
-                                      .start,
+                                  CrossAxisAlignment.start,
 
                               children: [
                                 Text(
                                   "Must-do experience",
 
-                                  style:
-                                      GoogleFonts.poppins(
+                                  style: GoogleFonts.poppins(
                                     color: const Color(
                                       0xFF123B32,
                                     ),
@@ -471,10 +449,9 @@ class DetailsScreen extends StatelessWidget {
                                 const SizedBox(height: 4),
 
                                 Text(
-                                  place["experience"]!,
+                                  place.experience!,
 
-                                  style:
-                                      GoogleFonts.poppins(
+                                  style: GoogleFonts.poppins(
                                     color: Colors.black87,
                                     fontSize: 13,
                                   ),
@@ -488,7 +465,6 @@ class DetailsScreen extends StatelessWidget {
 
                     const SizedBox(height: 25),
 
-                      
                     SizedBox(
                       width: double.infinity,
 
@@ -539,7 +515,6 @@ class DetailsScreen extends StatelessWidget {
     );
   }
 
-    
   Widget buildInformationRow({
     required IconData icon,
     required String title,
