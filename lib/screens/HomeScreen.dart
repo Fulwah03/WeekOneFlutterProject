@@ -33,13 +33,18 @@ class HomeScreen extends StatelessWidget {
     double screenWidth =
         MediaQuery.sizeOf(context).width;
 
-    double cardHeight =
-        screenWidth < 600 ? screenWidth * 0.70 : 330;
+    double cardHeight;
 
-    double cardWidth = screenWidth - 32;
+    if (screenWidth < 400) {
+      cardHeight = 350;
+    } else {
+      cardHeight = 330;
+     }
 
-    double separatorPosition =
-        cardWidth * 11 / 21;
+double cardWidth = screenWidth - 32;
+
+double separatorPosition =
+    cardWidth * 11 / 21;
 
     List<Map<String, String>> places = [
       {
